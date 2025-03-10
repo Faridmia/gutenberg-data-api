@@ -1,6 +1,6 @@
-import { Spinner } from "@wordpress/components";
+import { Spinner, Button } from "@wordpress/components";
 import { decodeEntities } from "@wordpress/html-entities";
-
+import PageEditButton from "./PageEditButton";
 export default function PagesList({ hasResolved, pages }) {
     if (!hasResolved) {
         return <Spinner />;
@@ -17,11 +17,14 @@ export default function PagesList({ hasResolved, pages }) {
                 </tr>
             </thead>
             <tbody>
-                {pages?.map((page) => (
+            { pages?.map( ( page ) => (
                     <tr key={page.id}>
-                        <td>{decodeEntities(page.title.rendered)}</td>
+                        <td>{ decodeEntities( page.title.rendered ) }</td>
+                        <td>
+                            <PageEditButton pageId={ page.id } />
+                        </td>
                     </tr>
-                ))}
+                ) ) }
             </tbody>
         </table>
     );

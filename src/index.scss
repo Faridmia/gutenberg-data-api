@@ -1,28 +1,202 @@
-#unadorned-announcement-bar-settings {
-    max-width: 800px;
+.toplevel_page_my-first-gutenberg-app #wpcontent {
+    background: #fff;
+    height: 1000px;
+}
+button .components-spinner {
+    width: 15px;
+    height: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+.form-buttons {
+    display: flex;
+}
+.my-gutenberg-form .form-buttons {
+    margin-top: 20px;
+    margin-left: 1px;
+}
+.form-error {
+    color: #cc1818;
+}
+.form-buttons button {
+    margin-right: 4px;
+}
+.form-buttons .components-spinner {
+    margin-top: 0;
+}
+#my-first-gutenberg-app {
+    max-width: 500px;
+}
+#my-first-gutenberg-app ul,
+#my-first-gutenberg-app ul li {
+    list-style-type: disc;
+}
+#my-first-gutenberg-app ul {
+    padding-left: 20px;
+}
+#my-first-gutenberg-app .components-search-control__input {
+    height: 36px;
+    margin-left: 0;
+}
+ 
+#my-first-gutenberg-app .list-controls {
+    display: flex;
+    width: 100%;
+}
+ 
+#my-first-gutenberg-app .list-controls .components-search-control {
+    flex-grow: 1;
+    margin-right: 8px;
+}
 
-    h1 {
-        padding-block: 8px;
-    }
+/* Modal background overlay */
+.wp-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+}
 
-    .components-base-control:has(textarea) {
-        flex-basis: 400px;
-    }
+/* Modal window */
+.wp-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    display: none; /* Hide by default */
+    z-index: 9999;
+}
 
-    .components-notice {
-        &, &__content {
-            margin: 0;
-        }
-    }
+/* Modal open state */
+.wp-modal.open {
+    display: block; /* Show when open */
+}
 
-    .components-notice-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-block-end: 16px;
-    }
+/* Show overlay when modal is open */
+.wp-modal.open + .wp-modal-overlay {
+    display: block;
+}
 
-    .components-panel {
-        margin-block-end: 8px;
+/* Button styles */
+.wp-list-table button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.wp-list-table button:hover {
+    background-color: #006799;
+}
+
+/* Prevent scrolling on the body when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+
+.components-modal__screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly darker for better focus */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Adds a blur effect to the background */
+}
+
+.components-modal__frame {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px; /* Smoother rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+    width: 500px;
+    max-width: 90%;
+    z-index: 1001;
+    animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.components-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.my-gutenberg-form input,
+.my-gutenberg-form textarea,
+.my-gutenberg-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.my-gutenberg-form button {
+    background-color: #0073e6; /* Example button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.my-gutenberg-form button:hover {
+    background-color: #005bb5; /* Darker shade on hover */
+}
+
+.components-button .components-modal__header {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.components-modal__header-heading {
+    font-size: 20px;
+}
+
+.components-modal__header .components-button {
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+label.components-base-control__label {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
 }

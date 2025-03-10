@@ -30,6 +30,13 @@ function my_gutenberg_app_enqueue_assets( $admin_page ) {
         $asset['version'],
         true
     );
+
+    wp_enqueue_style(
+        'my-gutenberg-app-style',
+        plugins_url( 'build/index.css', __FILE__ ),
+        [],
+        $asset['version']
+    );
 }
 add_action( 'admin_enqueue_scripts', 'my_gutenberg_app_enqueue_assets' );
 
